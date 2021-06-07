@@ -7,8 +7,9 @@ public class BankAccount {
         return amount;
     }
 
-    public void setAmount(double amount) {
+    public double setAmount(double amount) {
         this.amount = amount;
+        return amount;
     }
 
     public void deposit(double sum) {
@@ -18,7 +19,7 @@ public class BankAccount {
 
     public void WithDraw(int sum) throws LimitException {
         if (sum > amount){
-            throw new LimitException("Недостаточно стредств на счете!", getAmount());
+            throw new LimitException("Недостаточно стредств на счете!", setAmount(amount - getAmount()));
         }
         System.out.println("Остаток на счете: " + (getAmount() - sum));
         setAmount(getAmount() - sum);

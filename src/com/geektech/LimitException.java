@@ -13,7 +13,6 @@ public class LimitException extends Exception{
         return remainingAmount;
     }
 
-    @Override
     public String getMessage() {
         return message;
     }

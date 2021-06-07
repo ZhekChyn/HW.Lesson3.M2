@@ -16,10 +16,21 @@ public class Main {
             try {
                 System.out.println("Укажите сумму для обналичивания:");
                 MaratsBankAccount.WithDraw(Integer.parseInt(scanner.next()));
-            } catch (LimitException e) {
+
+            }
+            catch (LimitException e) {
                 System.out.println(e.getMessage());
-                System.out.println("Остаток на счете: " + e.getRemainingAmount());
+                System.out.println("Со счета снят весь остаток. \nОстаток на счете: " + e.getRemainingAmount());
+                break;
+            }
+            finally {
+                if (MaratsBankAccount.getAmount() == 0){
+                    break;
+                }
             }
         }
+
+
+
     }
 }
